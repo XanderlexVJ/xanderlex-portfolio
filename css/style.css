@@ -1,0 +1,106 @@
+:root { --bg: #e5e5e5; --text: #000; --accent: #ff3300; }
+* { margin: 0; padding: 0; box-sizing: border-box; } 
+body { background-color: var(--bg); color: var(--text); font-family: 'Space Mono', monospace; overflow-x: hidden; border: 15px solid #000; min-height: 100vh; }
+.fade-in { animation: fadeIn 0.5s steps(5, end); } @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } } .hide-scroll::-webkit-scrollbar { display: none; }
+.navbar { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; border-bottom: 3px solid #000; background: var(--bg); z-index: 100; position: sticky; top: 0; } 
+.logo { font-size: 2rem; font-weight: 700; color: var(--bg); text-decoration: none; text-transform: uppercase; background: #000; padding: 5px 15px; } 
+.nav-links { display: flex; gap: 2rem; list-style: none; } 
+.nav-links a { color: #000; text-decoration: none; font-size: 1.1rem; font-weight: 700; text-transform: uppercase; border: 2px solid transparent; padding: 5px 10px; transition: 0.1s; } 
+.nav-links a:hover { border-color: #000; background: #000; color: var(--bg); } 
+.nav-right { display: flex; align-items: center; gap: 1.5rem; } .ig-icon { color: #000; } .ig-icon:hover { color: var(--accent); } 
+
+/* РОВНО 2 ПОЛОСКИ В БУРГЕРЕ, ПРЕВРАЩАЮЩИЕСЯ В КРЕСТИК */
+.menu-btn { display: none; cursor: pointer; flex-direction: column; justify-content: space-between; width: 30px; height: 20px; position: relative; z-index: 101; }
+.menu-btn .bar { width: 100%; height: 3px; background: #000; transition: 0.3s ease; position: absolute; left: 0; }
+.menu-btn .bar:nth-child(1) { top: 0; }
+.menu-btn .bar:nth-child(2) { bottom: 0; }
+/* СДЕЛАЙТЕ ТАК (крестик станет черным): */
+.menu-btn.active .bar:nth-child(1) { transform: translateY(10px) rotate(45deg); background: #000; }
+.menu-btn.active .bar:nth-child(2) { transform: translateY(-10px) rotate(-45deg); background: #000; }
+.home-wrapper { min-height: calc(100vh - 100px); display: flex; flex-direction: column; padding: 2rem; } 
+.hero-split { display: flex; flex-direction: column-reverse; gap: 2rem; width: 100%; height: 100%; } 
+.hero-text { display: flex; flex-direction: column; border-top: 3px solid #000; padding-top: 2rem; } 
+.eyebrow { font-size: 1rem; text-transform: uppercase; font-weight: 700; margin-bottom: 1rem; background: var(--accent); color: #fff; padding: 5px 10px; display: inline-block; align-self: flex-start; } 
+.hero-text h1 { font-size: 6vw; line-height: 1; margin-bottom: 1.5rem; font-weight: 700; text-transform: uppercase; letter-spacing: -2px; word-break: break-all; } 
+.hero-text h1 i { font-style: normal; -webkit-text-stroke: 2px #000; color: transparent; } 
+.subtitle { font-size: 1.2rem; line-height: 1.4; margin-bottom: 2rem; max-width: 600px; border-left: 5px solid #000; padding-left: 15px; } 
+.line-link { font-size: 1.2rem; font-weight: 700; text-transform: uppercase; color: #000; text-decoration: none; border: 3px solid #000; padding: 10px 20px; align-self: flex-start; box-shadow: 6px 6px 0 #000; transition: 0.1s; } 
+.line-link:hover { transform: translate(4px, 4px); box-shadow: 2px 2px 0 #000; background: var(--accent); color: #fff; border-color: var(--accent); } 
+.hero-image-wrapper { height: 60vh; border: 3px solid #000; position: relative; overflow: hidden; filter: contrast(120%) grayscale(100%); } 
+.slideshow-container { width: 100%; height: 100%; position: relative; } 
+.slideshow-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; } 
+.slideshow-img.active { opacity: 1; }
+
+.page-content { padding: 4rem 2rem; min-height: 100vh; } 
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; } 
+/* СДЕЛАЙТЕ ТАК (фото станет ярче, без перенасыщенного черного контраста): */
+.about-visual img { 
+    width: 100%; 
+    aspect-ratio: 3/4; 
+    object-fit: cover; 
+    border: 3px solid #000; 
+    /* Переводим в ч/б, убираем темный контраст и добавляем осветление */
+    filter: grayscale(100%) brightness(1.15) contrast(90%); 
+} font-weight: 700; line-height: 1; margin-bottom: 2rem; text-transform: uppercase; border-bottom: 5px solid #000; padding-bottom: 1rem; } 
+.about-typography h2 i { font-style: normal; color: var(--accent); } 
+.bio-text { font-size: 1.2rem; line-height: 1.5; margin-bottom: 1.5rem; background: #fff; border: 2px solid #000; padding: 15px; box-shadow: 4px 4px 0 #000; }
+
+.section-header { margin-bottom: 2rem; border: 3px solid #000; padding: 1rem; text-align: center; background: #000; color: #fff; } 
+.section-header h2 { font-size: 2.5rem; font-weight: 700; text-transform: uppercase; } 
+.section-header h2 i { font-style: normal; color: var(--accent); } 
+.chaotic-gallery-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; } 
+.c-item { position: relative; border: 3px solid #000; box-shadow: 8px 8px 0 #000; transition: 0.1s; cursor: pointer; aspect-ratio: 1; background: #000; } 
+.c-item:hover { transform: translate(4px, 4px); box-shadow: 4px 4px 0 var(--accent); border-color: var(--accent); } 
+.c-item img { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(100%) contrast(120%); opacity: 0.8; transition: 0.1s; } 
+.c-item:hover img { filter: grayscale(0) contrast(100%); opacity: 1; } 
+
+.lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; z-index: 1000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: 0.3s; } 
+.lightbox.active { opacity: 1; pointer-events: all; } 
+.lb-img { max-width: 90%; max-height: 80%; border: 5px solid #fff; } 
+.lb-close { position: absolute; top: 20px; right: 20px; color: #fff; font-size: 3rem; cursor: pointer; font-weight: 700; background: var(--accent); width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; border: 3px solid #fff; } 
+.lb-nav { position: absolute; top: 50%; transform: translateY(-50%); color: #000; font-size: 3rem; cursor: pointer; background: #fff; width: 60px; height: 80px; display: flex; align-items: center; justify-content: center; font-weight: 700; border: 3px solid #000; } 
+.lb-nav:hover { background: var(--accent); color: #fff; } 
+.lb-prev { left: 20px; } .lb-next { right: 20px; } 
+.lb-counter { position: absolute; bottom: 20px; color: #000; background: #fff; padding: 10px 20px; font-weight: 700; font-size: 1.2rem; border: 3px solid #000; }
+
+footer { text-align: center; padding: 2rem; font-size: 1.2rem; font-weight: 700; border-top: 3px solid #000; background: #000; color: #fff; text-transform: uppercase; }
+
+@media (max-width: 900px) { 
+    body { border-width: 5px; } 
+    .navbar { padding: 1rem; } 
+    
+    #nav-menu { 
+        position: fixed; 
+        top: 65px; 
+        left: 0; 
+        width: 100%; 
+        height: calc(100vh - 65px); 
+        background: #000; 
+        display: none; 
+        align-items: center; 
+        justify-content: center; 
+        z-index: 99; 
+    } 
+    
+    #nav-menu.active { display: flex; } 
+    .nav-links { flex-direction: column; text-align: center; gap: 2rem; } 
+    .nav-links a { color: #fff; font-size: 2rem; } 
+    .nav-links a:hover { background: #fff; color: #000; } 
+    
+    .menu-btn { display: flex; } 
+    
+    /* Ровно 2 полоски бургера, превращающиеся в ЧЕРНЫЙ крестик при открытии */
+    .menu-btn.active .bar:nth-child(1) { 
+        top: 50%; 
+        transform: translateY(-50%) rotate(45deg); 
+        background: #000; 
+    } 
+    .menu-btn.active .bar:nth-child(2) { 
+        bottom: 50%; 
+        transform: translateY(50%) rotate(-45deg); 
+        background: #000; 
+    } 
+    
+    .hero-text h1 { font-size: 12vw; } 
+    .about-grid { grid-template-columns: 1fr; } 
+}
