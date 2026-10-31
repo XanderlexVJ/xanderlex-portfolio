@@ -156,11 +156,17 @@ document.addEventListener('DOMContentLoaded', () => {
     // Hero
     const heroContainer = document.getElementById('hero-slideshow');
     if (heroContainer && heroImages.length > 0) {
-        heroImages.forEach((src, index) => {
-            const img = document.createElement('img'); img.src = src; img.className = 'slideshow-img';
-            if (index === 0) img.classList.add('active');
-            heroContainer.appendChild(img);
-        });
+heroImages.forEach((image, index) => {
+    const img = document.createElement('img');
+
+    img.src = image.src;
+    img.alt = image.alt;
+    img.className = 'slideshow-img';
+
+    if (index === 0) img.classList.add('active');
+
+    heroContainer.appendChild(img);
+});
         const slides = document.querySelectorAll('.slideshow-img');
         let currentSlide = 0;
         if (slides.length > 1) {
@@ -180,11 +186,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const cGal = document.getElementById('chaotic-gallery');
     if(cGal) {
         const layouts = ['layout-large-center', 'layout-small-right', 'layout-medium-left', 'layout-wide-right'];
-        galleryImages.forEach((src, index) => {
-            const d = document.createElement('div'); d.className='c-item ' + layouts[index % layouts.length];
-            d.innerHTML = `<img src="${src}" alt="Archive Work">`;
-            cGal.appendChild(d);
-        });
+       galleryImages.forEach((image, index) => {
+    const d = document.createElement('div');
+    d.className = 'c-item ' + layouts[index % layouts.length];
+
+    const img = document.createElement('img');
+    img.src = image.src;
+    img.alt = image.alt;
+
+    d.appendChild(img);
+    cGal.appendChild(d);
+});
     }
     
     // Lightbox Logic
