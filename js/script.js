@@ -1,8 +1,34 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const heroImages = [
-        'images/hero/1.webp', 'images/hero/6.webp', 'images/hero/4.webp',
-        'images/hero/7.webp', 'images/hero/3.webp', 'images/hero/5.webp', 'images/hero/2.webp'
-    ];
+   const heroImages = [
+    { 
+        src: 'images/hero/1.webp', 
+        alt: 'Winter fjord landscape with snow-capped mountains and a solitary ship at twilight by Xanderlex' 
+    },
+    { 
+        src: 'images/hero/6.webp', 
+        alt: 'Abstract macro photography of dry light grass stems against a dark background by Xanderlex' 
+    },
+    { 
+        src: 'images/hero/4.webp', 
+        alt: 'Drone photography of a turquoise salt lake with white mineral deposits and terraced shores by Xanderlex' 
+    },
+    { 
+        src: 'images/hero/7.webp', 
+        alt: 'Detailed macro photography of a dried cup-shaped wild flower in warm earth tones by Xanderlex' 
+    },
+    { 
+        src: 'images/hero/3.webp', 
+        alt: 'Aerial photography of dark emerald ocean waves crashing over a rocky shoreline by Xanderlex' 
+    },
+    { 
+        src: 'images/hero/5.webp', 
+        alt: 'Macro photography of vivid green grass spikes with soft bokeh background by Xanderlex' 
+    },
+    { 
+        src: 'images/hero/2.webp', 
+        alt: 'Vibrant green agricultural field with tire tracks and blue cloudy sky photography by Xanderlex' 
+    }
+];
     const galleryImages = [
         'images/gallery/22.webp', 'images/gallery/4.webp', 'images/gallery/28.webp',
         'images/gallery/15.webp', 'images/gallery/2.webp', 'images/gallery/13.webp',
